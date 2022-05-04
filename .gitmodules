@@ -1,0 +1,6 @@
+[submodule "ConceptExtraction"]
+	path = ConceptExtraction
+	url = https://github.com/CasperAntonPoulsen/ConceptExtraction
+[submodule "HateSpeechTargetsAspects"]
+	path = HateSpeechTargetsAspects
+	url = https://github.com/CasperAntonPoulsen/HateSpeechTargetsAspects
