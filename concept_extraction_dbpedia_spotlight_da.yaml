@@ -1,0 +1,45 @@
+save_data: run/concept_extraction
+
+src_vocab: run/concept_extraction_da.vocab.src
+tgt_vocab: run/concept_extraction_da.vocab.tgt
+
+overwrite: True
+
+src_seq_length_trunc: 400
+tgt_seq_length_trunc: 100
+
+data:
+    cnndm:
+        path_src: /home/caap/TargetsOfAbuse/data/concept_extraction/da/training_set/src_train_dbpedia_spotlight05_da.txt
+        path_tgt: /home/caap/TargetsOfAbuse/data/concept_extraction/da/training_set/tgt_train_dbpedia_spotlight05_da.txt
+    valid:
+        path_src: /home/caap/TargetsOfAbuse/data/concept_extraction/da/validation_set/src_valid_dbpedia_spotlight05_da.txt
+        path_tgt: /home/caap/TargetsOfAbuse/data/concept_extraction/da/validation_set/tgt_valid_dbpedia_spotlight05_da.txt
+
+src_vocab_size: 50000
+tgt_vocab_size: 50000
+
+save_model: run/model_dbpedia_spotlight10_100k_2l_da_mlp
+copy_attn: true
+
+global_attention: mlp
+coverage_attn: true
+
+word_vec_size: 256
+rnn_size: 512
+
+layers: 2
+encoder_type: brnn
+train_steps: 100000
+
+batch_size: 128
+optim: sgd
+
+dropout: 0
+reuse_copy_attn: true
+copy_loss_by_seqlength: true
+
+learning_rate: 0.1
+
+world_size: 1
+gpu_ranks: [0]

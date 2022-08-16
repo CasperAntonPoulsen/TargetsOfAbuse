@@ -1,0 +1,43 @@
+save_data: run/concept_extraction_dsa_60_0
+
+src_vocab: run/concept_extraction_dsa_60_0.vocab.src
+tgt_vocab: run/concept_extraction_dsa_60_0.vocab.tgt
+
+overwrite: True
+
+src_seq_length_trunc: 400
+tgt_seq_length_trunc: 100
+
+data:
+    cnndm:
+        path_src: /home/caap/TargetsOfAbuse/data/concept_extraction/training_set/dsa_60_0/src_train_dsa_60_0_324_YAWN_parts.txt
+        path_tgt: /home/caap/TargetsOfAbuse/data/concept_extraction/training_set/dsa_60_0/tgt_train_dsa_60_0_324_YAWN_parts.txt
+    valid:
+        path_src: /home/caap/TargetsOfAbuse/data/concept_extraction/validation_set/dsa_60_0/src_valid_dsa_60_0_325_364_YAWN_parts.txt
+        path_tgt: /home/caap/TargetsOfAbuse/data/concept_extraction/validation_set/dsa_60_0/tgt_valid_dsa_60_0_325_364_YAWN_parts.txt
+
+src_vocab_size: 50000
+tgt_vocab_size: 50000
+
+save_model: run/model_dbpedia_60_0_20k_2l_en
+copy_attn: true
+
+global_attention: dot
+
+word_vec_size: 256
+rnn_size: 512
+
+layers: 2
+encoder_type: brnn
+train_steps: 20000
+
+batch_size: 128
+optim: sgd
+
+dropout: 0
+reuse_copy_attn: true
+copy_loss_by_seqlength: true
+learning_rate: 0.1
+
+world_size: 1
+gpu_ranks: [0]
